@@ -1,0 +1,23 @@
+.insert {
+    position: relative;
+  }
+  .insert::before {
+    content: ' ';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -0.4rem;
+    border-top: 2px dashed #00bcd4;
+  }
+  
+  .home-wrapper {
+    display: flex;
+    padding: 20px 50px;
+    // min-height: 100vh;
+    /* justify-content: space-between; */
+    justify-content: center;
+  }
+  
+  .ant-input-number-sm {
+    width: 55px;
+  }

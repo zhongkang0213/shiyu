@@ -1,20 +1,28 @@
 {
-  "name": "study-dnd",
+  "name": "shiyu",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "antd": "^3.26.6",
+    "axios": "^0.19.1",
     "immutability-helper": "^3.0.0",
+    "mobx": "^5.15.2",
+    "mobx-react": "^6.1.5",
+    "node-sass": "^4.13.0",
+    "prop-types": "^15.7.2",
     "react": "^16.8.4",
+    "react-app-rewired": "^2.1.5",
     "react-dnd": "^7.3.1",
     "react-dnd-html5-backend": "^7.2.0",
     "react-dom": "^16.8.4",
     "react-scripts": "2.1.8"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject",
+    "jest": "jest"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -24,5 +32,14 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-jest": "^24.9.0",
+    "babel-preset-env": "^1.7.0",
+    "customize-cra": "^0.9.1",
+    "jest": "^24.9.0",
+    "react-router-dom": "^5.1.2",
+    "regenerator-runtime": "^0.13.3"
+  }
 }

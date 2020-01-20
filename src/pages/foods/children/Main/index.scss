@@ -1,0 +1,53 @@
+.main-wrapper {
+    position: relative;
+    width: 520px;
+    height: 500px;
+    background-color: #fff;
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+    overflow: scroll;
+    margin: 0 20px;
+    border-radius: 4px;
+    .main-top {
+        display: flex;
+        justify-content: space-around;
+        padding: 20px 0;
+    }
+    .foods-name, .foods-select {
+        display: flex;
+        width: 220px;
+        align-items: center;
+        .item-s {
+            display: inline-block;
+            width: 80px;
+        }
+    }
+    .table-input-item {
+        text-align: center;
+
+        width: 80px;
+    }
+    .main-content {
+        height: 100%;
+    }
+    .btn-save {
+        position: absolute;
+        // display: inline-block;
+        height: 38px;
+        line-height: 38px;
+        padding: 0 18px;
+        background-color: #009688;
+        color: #fff;
+        white-space: nowrap;
+        text-align: center;
+        font-size: 14px;
+        border: none;
+        border-radius: 2px;
+        cursor: pointer;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 10px;
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}

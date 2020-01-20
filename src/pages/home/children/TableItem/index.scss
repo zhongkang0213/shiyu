@@ -1,0 +1,31 @@
+.ant-input-number {
+    width: 55px!important;
+}
+.ant-tag {
+    width: 20px!important;
+    height: 20px!important;
+    display: flex!important;
+    align-items: center!important;
+    padding: 0!important;
+    border-radius: 50%!important;
+    /* color: #fdad58!important; */
+}
+.tag-wrapper {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 0 10px;
+    opacity: 0;
+}
+.tag-wrapper:hover {
+    opacity: 1;
+}
+.td-name {
+    display: inline-block;
+    width: 60px;
+    margin-right: 10px;
+    /* height: 100%; */
+    vertical-align: middle;
+}
+.td-f-c {
+    /* color: #fdad58; */
+}

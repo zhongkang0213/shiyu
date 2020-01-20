@@ -1,0 +1,30 @@
+.foods-wrapper {
+    background-color: #fff;
+    display: flex;
+    padding: 20px 50px;
+    justify-content: center;
+    height: 100%;
+    .main-content {
+        width: 520px;
+        height: 500px;
+        background-color: #fff;
+        box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+        overflow: scroll;
+        border-radius: 4px;
+    }
+}
+.ant-menu-item-selected {
+    color: rgba(0, 0, 0, 0.65)!important;
+}
+.ant-menu-submenu-selected {
+    color: rgba(0, 0, 0, 0.65)!important;
+}
+.ant-menu-submenu .ant-menu-submenu-inline .ant-menu-submenu-open {
+    color: rgba(0, 0, 0, 0.65)!important;
+    background: none!important;
+    background-color: none!important;
+}
+.ant-menu-submenu:hover {
+    color: rgba(0, 0, 0, 0.65)!important;
+    background: none!important;
+}

@@ -1,0 +1,22 @@
+.menulist-wrapper {
+    width: 256px;
+    height: 500px;
+    // padding: 20px 0;
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+    overflow: scroll;
+    border-radius: 4px;
+    // border: 1px solid
+    .menulist-title {
+        background: #F5F5F5;
+        padding: 15px;
+        font-size: 14px;
+        border-radius: 3px;
+    }
+}
+
+.ant-menu-inline, .ant-menu-vertical, .ant-menu-vertical-left {
+    border-right: none!important;
+}
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+    background-color: #fff!important;
+}

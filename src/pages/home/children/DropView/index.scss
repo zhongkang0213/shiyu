@@ -1,0 +1,18 @@
+.dropview-wrapper {
+    width: 360px;
+    height: 500px;
+    background-color: #fff;
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+    overflow: scroll;
+    border-radius: 4px;
+}
+.ant-table-thead th {
+    text-align: center!important;
+}
+.ant-table-header-column {
+    /* width: 100px!important; */
+    text-align: center!important;
+}
+td {
+    text-align: center!important; 
+}
