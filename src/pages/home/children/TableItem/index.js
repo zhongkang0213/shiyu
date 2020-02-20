@@ -37,14 +37,14 @@ class DragItem extends React.Component {
                 { index === 0 && <td className="drop-table-td" rowSpan={data.length}>{type}</td> }
                 <td className="drop-table-td">
                     <span className="td-name td-f-c">{item.name}</span> 
-                    <InputNumber min={1} value={item.count} onChange={this.onChange.bind(this, 'caiyao', index)} width={20}/> 
+                    <InputNumber min={1} value={item.weight} onChange={this.onChange.bind(this, 'caiyao', index)} width={20}/> 
                     <div className="tag-wrapper">
                         <Tag onClose={this.closeCyTag.bind(this, index)} closable />
                     </div>
                 </td>
                 {/* <td className="drop-table-td">
                     <span className="td-name">{item.shicai.name}</span>
-                    <InputNumber min={1} defaultValue={item.shicai.count} onChange={this.onChange.bind(this, 'shicai', index)} width={20}/>
+                    <InputNumber min={1} defaultValue={item.shicai.weight} onChange={this.onChange.bind(this, 'shicai', index)} width={20}/>
                     <div className="tag-wrapper">
                         <Tag onClose={this.closeCyTag.bind(this, index)} closable />
                     </div>

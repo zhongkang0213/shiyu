@@ -1,5 +1,5 @@
 import React from 'react'
-import { Divider } from 'antd'
+import { Divider, Spin } from 'antd'
 import MenuItem from '../MenuItem'
 import './index.scss'
 

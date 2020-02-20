@@ -1,5 +1,10 @@
 import originAxios from 'axios'
 import {baseUrl, ERR_OK} from 'service/config'
+import { message } from 'antd';
+message.config({
+    maxCount: 1,
+    top: 200
+});
 // originAxios.defaults.withCredentials = true
 
 export default function axios (url = '/', method = 'get', data, headers = {headers: {'Content-Type': 'application/json'}}) {
@@ -12,10 +17,12 @@ export default function axios (url = '/', method = 'get', data, headers = {heade
           if (response.status === 200) {
             resolve(response)
           } else {
+            message.error('请求错误，请联系管理员')
             reject(response)
           }
         })
         .catch((error) => {
+          message.error('请求错误，请联系管理员')
           reject(error)
         })
     })
@@ -26,10 +33,12 @@ export default function axios (url = '/', method = 'get', data, headers = {heade
           if (response.status === 200) {
             resolve(response)
           } else {
+            message.error('请求错误，请联系管理员')
             reject(response)
           }
         })
         .catch((error) => {
+          message.error('请求错误，请联系管理员')
           reject(error)
         })
     })

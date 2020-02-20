@@ -25,7 +25,7 @@ class Main extends React.Component {
           dataIndex: 'jingliang',
           key: 'jingliang',
           render: (jingliang, item, index) => {
-            return (<Input defaultValue={jingliang} style={{ width: 80 }} onChange={this.inputChange.bind(this, jingliang, item, index)} />)
+            return (<Input value={jingliang} style={{ width: 80 }} onChange={this.inputChange.bind(this, jingliang, item, index)} />)
           }
         },
         {
@@ -49,7 +49,14 @@ class Main extends React.Component {
   }
 
   handleSelectChange = (value) => {
-    this.props.handleSelectChange && this.props.handleSelectChange(value)
+    let { type } = this.props
+    let id = null
+    type.map((item) => {
+      if (item.name === value) {
+        id = item.id
+      }
+    })
+    this.props.handleSelectChange && this.props.handleSelectChange(id)
   }
 
   handleTableDeleteButton = (name, item, index) => {
@@ -66,22 +73,22 @@ class Main extends React.Component {
 
   render () {
     let { tableColumns } = this.state
-    let { type, tableData, foodName } = this.props
+    let { type, tableData, foodName, typeName} = this.props
     return <div className="main-wrapper">
         <div className="main-content">
             <div className="main-top">
                 <div className="foods-name">
                     <span className="item-s">菜肴名称</span>
-                    <Input placeholder="请输入菜肴名称" defaultValue={foodName} style={{ width: 150 }} onChange={this.handleFoodNameChange} />
+                    <Input placeholder="请输入菜肴名称" value={foodName} style={{ width: 150 }} onChange={this.handleFoodNameChange} />
                 </div>
                 <div className="foods-select">
                     <span className="item-s">菜肴分类</span>
-                    <Select defaultValue={type.value ? type.value : null} style={{ width: 170 }} placeholder="请选择" onChange={this.handleSelectChange}>
-                        {
-                            type.map((item, index) => {
-                                return <Option value={item.id} key={index}>{item.name}</Option>
-                            })
-                        }
+                    <Select value={typeName} style={{ width: 170 }} placeholder="请选择" onChange={this.handleSelectChange}>
+                      {
+                          type.map((item, index) => {
+                              return <Option value={item.name} key={item.name}>{item.name}</Option>
+                          })
+                      }
                     </Select>
                 </div>
             </div>

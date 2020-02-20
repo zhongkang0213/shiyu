@@ -8,7 +8,6 @@ const { SubMenu } = Menu
 class MenuList extends React.Component {
 
   handleClick = (e) => {
-    // console.log(e.key.split('-'))
     this.props.handleClickMenuItem && this.props.handleClickMenuItem(e.key.split('-'));
   }
 

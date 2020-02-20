@@ -17,45 +17,6 @@ const chapterTarget = {
 class DropArea extends React.Component {
 
   state = {
-    dataSource: {
-      morning: [
-        {
-          caiyao: {
-            name: '清炒包菜',
-            count: 30
-          },
-          shicai: {
-            name: '圆白菜、卷心菜',
-            count: 30
-          }
-        }
-      ],
-      aftern: [
-        
-      ],
-      evening: [
-        {
-          caiyao: {
-            name: '清炒包菜',
-            count: 30
-          },
-          shicai: {
-            name: '圆白菜、卷心菜',
-            count: 30
-          }
-        },
-        {
-          caiyao: {
-            name: '清炒包菜',
-            count: 30
-          },
-          shicai: {
-            name: '圆白菜、卷心菜',
-            count: 30
-          }
-        }
-      ]
-    },
     columns: [
       {
         title: '餐别',
@@ -66,12 +27,7 @@ class DropArea extends React.Component {
         title: '菜肴（克/人）',
         dataIndex: 'caiyao',
         key: 'caiyao',
-      },
-      // {
-      //   title: '食材（克/人）',
-      //   dataIndex: 'shicai',
-      //   key: 'shicai',
-      // }
+      }
     ]
   }
 

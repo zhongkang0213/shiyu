@@ -17,18 +17,22 @@ import BasicWrapper from 'components/BasicWrapper'
 class Foods extends Component {
   state = {
     data: [],
-    tableData: [
-    ]
+    recipeId: ''
   }
 
   componentDidMount = () => {
-      this.props.foodsStore.getCategories();
-      this.props.foodsStore.recipesCategories();
+    let path = window.location.href;
+    let recipeId = path.split('recipe_id=')[1];
+    this.props.foodsStore.getRecipeInfo(recipeId)
+    this.props.foodsStore.getCategories();
+    this.setState({
+      recipeId
+    })
   }
 
   handleClickMenuItem = (key) => {
     let foodsList = JSON.parse(JSON.stringify(this.props.foodsStore.foodsList))
-    let tableData = JSON.parse(JSON.stringify(this.state.tableData))
+    let tableData = JSON.parse(JSON.stringify(this.props.foodsStore.tableData))
     let food = foodsList[+key[0]].sub[+key[1]].foods[+key[2]]
     if (!this.checkMenuItem(food)) {
         message.warning('当前食材已添加，请勿重复添加')
@@ -47,13 +51,11 @@ class Foods extends Component {
     tableData.map((item, index) => {
         item.key = index
     })
-    this.setState({
-        tableData
-    })
+    this.props.foodsStore.setTableData(tableData)
   }
 
   checkMenuItem = (data) => {
-    let tableData = JSON.parse(JSON.stringify(this.state.tableData))
+    let tableData = JSON.parse(JSON.stringify(this.props.foodsStore.tableData))
     for (let i = 0; i < tableData.length; i++) {
         if (+data.id === +tableData[i].id) {
             return false
@@ -63,20 +65,16 @@ class Foods extends Component {
   }
 
   inputChange = (index, value) => {
-    let tableData = JSON.parse(JSON.stringify(this.state.tableData))
+    let tableData = JSON.parse(JSON.stringify(this.props.foodsStore.tableData))
     tableData[index].jingliang = value
     tableData[index].reliang = ((+value) * (+tableData[index].energy_kcal))/100 || ''
-    this.setState({
-        tableData
-    })
+    this.props.foodsStore.setTableData(tableData)
   }
 
   handleDelete = (index) => {
-    let tableData = JSON.parse(JSON.stringify(this.state.tableData))
+    let tableData = JSON.parse(JSON.stringify(this.props.foodsStore.tableData))
     tableData.splice(index, 1)
-    this.setState({
-        tableData
-    })
+    this.props.foodsStore.setTableData(tableData)
   }
 
   handleFoodNameChange = (value) => {
@@ -85,11 +83,12 @@ class Foods extends Component {
 
   handleSelectChange = (id) => {
     this.props.foodsStore.setTypeId(id)
+    this.props.foodsStore.setTypename(id)
   }
 
   handleSave = () => {
-    let { foodName } = this.props.foodsStore;
-    let tableData = JSON.parse(JSON.stringify(this.state.tableData))
+    let { foodName, typeId } = this.props.foodsStore;
+    let tableData = JSON.parse(JSON.stringify(this.props.foodsStore.tableData))
     if (!foodName) {
         message.error('请填写菜肴名称')
         return
@@ -98,17 +97,22 @@ class Foods extends Component {
         message.error('请编辑菜肴食材！')
         return
     }
-    this.props.foodsStore.saveFoods()
+    if (!typeId) {
+      message.error('请选择菜肴分类！')
+      return
+    }
+    this.props.foodsStore.saveFoods(this.state.recipeId, () => {
+      message.success('保存成功！')
+    })
   }
 
   render() {
-    let { tableData } = this.state;
-    let { foodsList, foodsType, foodName } = this.props.foodsStore;
+    let { foodsList, foodsType, foodName, tableData, typeName } = this.props.foodsStore;
     return (
         <BasicWrapper width={1200} height={550}>
             <div className="foods-wrapper">
                 <MenuList data={ foodsList } handleClickMenuItem={this.handleClickMenuItem} />
-                <Main type={foodsType} tableData={tableData} foodName={foodName}  
+                <Main type={foodsType} typeName={typeName} tableData={tableData} foodName={foodName}  
                     handleSave={this.handleSave} 
                     handleDelete={this.handleDelete} 
                     inputChange={this.inputChange}
